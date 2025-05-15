@@ -1,26 +1,20 @@
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
+
 variable "alert_email" {
-  description = "Email address for SNS notifications"
+  description = "Email address for notifications"
   type        = string
 }
 
 variable "instance_ids" {
-  description = "List of EC2 instance IDs to stop"
+  description = "List of EC2 instance IDs"
   type        = list(string)
 }
 
-variable "stop_hour" {
-  description = "Hour in UTC for daily stop (0-23)"
-  type        = number
-}
-
-variable "lambda_function_name" {
-  description = "Name of the Lambda function"
+variable "stop_cron_expr" {
+  description = "Cron expression in UTC for daily stop"
   type        = string
-  default     = "stop-ec2-and-notify"
-}
-
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = "eu-west-1"
 }
