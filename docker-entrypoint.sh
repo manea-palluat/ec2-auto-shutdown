@@ -1,8 +1,18 @@
-set -e
+#!/bin/bash
+
+set -e #the script will exit if any command fails
 
 prompt() {
   [ -z "${!1}" ] && read -p "$2: " val && export $1="$val"
 }
+
+#this function:
+# - checks if the variable is set with [ -z "${!1}" ],
+#the -z flag checks if the variable is empty (it's a feature of bash)
+#and the "${!1}" syntax is used to get the value of the variable whose name is stored in $1
+# - if the variable is not set, it prompts the user for a value with read -p "$2: " val
+# - and then exports the variable with export $1="$val"
+# - the function is called with the variable name and the prompt message as arguments
 
 #always load .env if present cause it contains the AWS credentials
 [ -f /app/.env ] && export $(grep -v '^#' /app/.env | xargs)
