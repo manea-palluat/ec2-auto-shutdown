@@ -13,7 +13,7 @@ To make it more technically interesting, I added an email notification that repo
 
 - Fully managed with Terraform: SNS topic, Lambda function, and EventBridge rule
 - Dockerized environment with an interactive CLI  
-  (I thought it would be simpler—and more fun—to code that way)
+  (I thought it would be simpler and more fun to code it that way)
 - Parameters can be passed via terminal or `.env` file
 - Email report shows whether instances were running or already stopped
 
